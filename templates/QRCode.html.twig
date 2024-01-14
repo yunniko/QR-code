@@ -1,0 +1,30 @@
+{# templates/QRCode.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <img>
+    </div>
+    <hr>
+    <div>
+        <ul>
+            <li><span>Iban:</span> {{ form.iban.vars.value }}</li>
+            {% if not form.variableSymbol.vars.value is empty %}
+                <li><span>Variable symbol:</span> {{ form.variableSymbol.vars.value }}</li>
+            {% endif %}
+            {% if not form.specificSymbol.vars.value is empty %}
+                <li><span>Specific symbol:</span> {{ form.specificSymbol.vars.value }}</li>
+            {% endif %}
+            {% if not form.constantSymbol.vars.value is empty %}
+                <li><span>Constant symbol:</span> {{ form.constantSymbol.vars.value }}</li>
+            {% endif %}
+
+            <li><span>Amount:</span> {{ form.amount.vars.value }} {{ form.currency.vars.value }}</li>
+
+            {% if not form.message.vars.value is empty %}
+                <li><span>Message:</span> {{ form.message.vars.value }}</li>
+            {% endif %}
+        </ul>
+    </div>
+
+{% endblock %}
